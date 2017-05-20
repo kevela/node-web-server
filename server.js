@@ -65,6 +65,14 @@ app.get('/about', (request, response) => {
   });
 });
 
+//Render Projects page
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs', {
+      pageTitle: 'Projects Page',
+      message: 'Future projects to be added here.'
+    });
+});
+
 app.get('/bad', (request, response) => {
   response.send({
     errorMessage: 'Request failed because reasons'
