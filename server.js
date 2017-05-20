@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//object that stores env vars as key value pairs
+const port = process.env.PORT || 3000;
 var app = express();
 
 //give location to partials we're going to use
@@ -69,9 +71,7 @@ app.get('/bad', (request, response) => {
   });
 });
 
-// /bad - send back json data with errorMessage property
-
-//bind application to port on my machine
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.')
+//using environment variable with Heroku
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}.`);
 ;});
